@@ -1,6 +1,8 @@
 package aluno.ifsc.app.focos.dengue.ui
 
 import aluno.ifsc.app.focos.dengue.R
+import aluno.ifsc.app.focos.dengue.data.resources.UserRepository
+import aluno.ifsc.app.focos.dengue.data.resources.request.UserRequest
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -11,12 +13,19 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import aluno.ifsc.app.focos.dengue.databinding.ActivityMainBinding
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var userRepository: UserRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +43,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        val query = UserRequest.Login()
+        query.cpf = "09518747997"
+        query.password = "123456"
+
+        
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
