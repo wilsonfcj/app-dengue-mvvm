@@ -4,6 +4,7 @@ import aluno.ifsc.app.focos.dengue.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class RetrofitImpl(private val url: String = BuildConfig.WS_URL) {
@@ -22,6 +23,7 @@ class RetrofitImpl(private val url: String = BuildConfig.WS_URL) {
 
         return Retrofit.Builder()
             .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
             .client(lBuild)
             .build()
     }

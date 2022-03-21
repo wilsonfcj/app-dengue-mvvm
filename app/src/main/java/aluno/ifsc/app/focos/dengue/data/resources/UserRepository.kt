@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class UserRepository @Inject constructor(private val service: UserService) {
 
-    suspend fun authLoginUser(query: UserRequest.Login): Flow<BaseResponse<UserResponse.Login>> = flow {
+    fun authLoginUser(query: UserRequest.Login): Flow<BaseResponse<UserResponse.Login>> = flow {
         val response = service.login(query)
         emit(response)
     }

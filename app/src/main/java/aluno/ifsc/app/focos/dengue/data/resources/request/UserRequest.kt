@@ -15,10 +15,10 @@ sealed class UserRequest {
     )
 
     open class Login(
-        @SerializedName("CPF")
+        @field:SerializedName("CPF")
         var cpf: String? = null,
 
-        @SerializedName("Senha")
+        @field:SerializedName("Senha")
         var password: String? = null
     )
 

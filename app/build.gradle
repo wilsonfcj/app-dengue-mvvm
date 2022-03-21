@@ -84,4 +84,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$version_rxAndroid"
     implementation "io.reactivex.rxjava2:rxjava:$version_rxJava"
     implementation "io.reactivex.rxjava2:rxkotlin:$version_rxKotlin"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
 }
